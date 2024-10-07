@@ -22,8 +22,8 @@ const carSchema = new mongoose.Schema({
   },
   condition: {
     type: String,
-    enum: ["used", "new"],
-    required: [true, "Car condition is required"],
+    enum: ["used", "new", ""],
+    // required: [true, "Car condition is required"],
   },
   transmission: {
     type: String,

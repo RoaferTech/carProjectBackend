@@ -1,15 +1,16 @@
 import multer from "multer";
 
 const storage = multer.diskStorage({
-  destination: "./public/upload/",
+  destination: "./public/uploads/",
   filename: (req, file, cb) => {
     const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
-    const extension = file.mimetype.startsWith("video")
+    const extenstion = file.mimetype.startsWith("video/")
       ? ".mp4"
       : `.${file.originalname.split(".").pop()}`;
-    cb(null, file.originalname.split(".")[0] + "-" + uniqueSuffix + extension);
+    cb(null, file.filename + "-" + uniqueSuffix + extenstion);
   },
 });
+
 const upload = multer({
   storage: storage,
   limits: {

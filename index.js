@@ -15,6 +15,7 @@ ConnectDB();
 app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
+app.use("/public/uploads", express.static("public/uploads"));
 
 app.use("/api/auth", authRoutes);
 app.use("/api/cars", carRoutes);
